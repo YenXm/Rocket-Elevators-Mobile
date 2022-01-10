@@ -1,4 +1,5 @@
 ﻿using Rocket_Elevators_Mobile.ViewModels;
+using Rocket_Elevators_Mobile.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,10 @@ namespace Rocket_Elevators_Mobile.Views
     {
         public LoginPage()
         {
+            DependencyService.Register<IMessageService, MessageService>();
+            DependencyService.Register<IClientService, ClientService>();
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
+            BindingContext = new LoginViewModel();
         }
     }
 }

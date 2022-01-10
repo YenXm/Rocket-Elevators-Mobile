@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rocket-Elevators-Mobile.And
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rocket-Elevators-Mobile.iOS", "Rocket-Elevators-Mobile.iOS\Rocket-Elevators-Mobile.iOS.csproj", "{EACA8269-E8AE-4A20-8431-FE4D92660B19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rocket-Elevators-Mobile", "Rocket-Elevators-Mobile\Rocket-Elevators-Mobile.csproj", "{C3F9FA36-806F-4CF9-86DE-1178B4F06460}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rocket-Elevators-Mobile", "Rocket-Elevators-Mobile\Rocket-Elevators-Mobile.csproj", "{C3F9FA36-806F-4CF9-86DE-1178B4F06460}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -88,7 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Rocket-Elevators-Mobile\Rocket-Elevators-Mobile.csproj">
-      <Project>{9D2E8ADF-6988-4919-BE71-B06FB27F3584}</Project>
+      <Project>{C3F9FA36-806F-4CF9-86DE-1178B4F06460}</Project>
       <Name>Rocket-Elevators-Mobile</Name>
     </ProjectReference>
   </ItemGroup>

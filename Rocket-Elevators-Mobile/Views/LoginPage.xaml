@@ -7,7 +7,15 @@
              x:Class="Rocket_Elevators_Mobile.Views.LoginPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center" Spacing="30">
+            <Editor Text="{Binding Email, Mode=TwoWay}" Placeholder="Enter your email" PlaceholderColor="#87ceeb"  AutoSize="TextChanges" FontSize="Medium" Margin="0" >
+                <Editor.BackgroundColor>
+                    <OnPlatform x:TypeArguments="d:Color">
+                        <On Platform="iOS" Value="{StaticResource Primary}" />
+                        <On Platform="Android" Value="{StaticResource Primary}" />
+                    </OnPlatform>
+                </Editor.BackgroundColor>
+            </Editor>
             <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
         </StackLayout>
     </ContentPage.Content>
