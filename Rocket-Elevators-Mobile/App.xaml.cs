@@ -1,8 +1,5 @@
 ﻿using Rocket_Elevators_Mobile.Services;
-using Rocket_Elevators_Mobile.Views;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Rocket_Elevators_Mobile
 {
@@ -13,6 +10,8 @@ namespace Rocket_Elevators_Mobile
         {
             InitializeComponent();
 
+            DependencyService.Register<IMessageService, MessageService>();
+            DependencyService.Register<IClientService, ClientService>();
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
         }

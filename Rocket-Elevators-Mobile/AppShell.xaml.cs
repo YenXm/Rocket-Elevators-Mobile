@@ -1,7 +1,5 @@
-﻿using Rocket_Elevators_Mobile.ViewModels;
-using Rocket_Elevators_Mobile.Views;
+﻿using Rocket_Elevators_Mobile.Views;
 using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace Rocket_Elevators_Mobile

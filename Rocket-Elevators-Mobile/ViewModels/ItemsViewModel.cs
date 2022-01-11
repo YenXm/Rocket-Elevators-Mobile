@@ -35,8 +35,8 @@ namespace Rocket_Elevators_Mobile.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+                System.Collections.Generic.IEnumerable<Item> items = await DataStore.GetItemsAsync(true);
+                foreach (Item item in items)
                 {
                     Items.Add(item);
                 }

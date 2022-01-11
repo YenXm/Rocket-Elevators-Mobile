@@ -11,6 +11,8 @@ namespace Rocket_Elevators_Mobile.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IMessageService MessageService => DependencyService.Get<IMessageService>();
+        public IClientService ClientService => DependencyService.Get<IClientService>();
 
         bool isBusy = false;
         public bool IsBusy
@@ -43,7 +45,7 @@ namespace Rocket_Elevators_Mobile.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            var changed = PropertyChanged;
+            PropertyChangedEventHandler changed = PropertyChanged;
             if (changed == null)
                 return;
 

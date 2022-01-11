@@ -1,5 +1,4 @@
-﻿using Rocket_Elevators_Mobile.Services;
-using Rocket_Elevators_Mobile.Views;
+﻿using Rocket_Elevators_Mobile.Views;
 using Xamarin.Forms;
 
 
@@ -8,8 +7,7 @@ namespace Rocket_Elevators_Mobile.ViewModels
     public class LoginViewModel : BaseViewModel
     {
 
-        private readonly IMessageService _messageService = DependencyService.Get<IMessageService>();
-        private readonly IClientService _clientService = DependencyService.Get<IClientService>();
+
 
         public Command LoginCommand { get; }
         private string email;
@@ -35,8 +33,9 @@ namespace Rocket_Elevators_Mobile.ViewModels
 
         private async void OnLoginClicked()
         {
+
             // Verify that an employee with that email exist in database
-            bool EmailVerification = await _clientService.VerifyEmployeeEmail(email);
+            bool EmailVerification = await ClientService.VerifyEmployeeEmail(email);
             if (EmailVerification)
             {
                 // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
@@ -45,7 +44,7 @@ namespace Rocket_Elevators_Mobile.ViewModels
             else
             {
                 // Display an alert if the email verification fails
-                await _messageService.DisplayAlert("Invalid Email Address");
+                await MessageService.DisplayAlert("Invalid Email Address");
             }
         }
     }

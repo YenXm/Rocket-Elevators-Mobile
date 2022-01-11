@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:Rocket_Elevators_Mobile.ViewModels" 
+             xmlns:model="clr-namespace:Rocket_Elevators_Mobile.Models"
+             x:DataType="viewmodels:HomeViewModel"
+             x:Class="Rocket_Elevators_Mobile.Views.HomePage">
+    <ListView x:Name="ElevatorListView"
+            ItemsSource="{Binding Elevators}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+    <!--Built in Cells-->
+    
+    <ListView.ItemTemplate>
+        <DataTemplate x:DataType="model:Elevator">
+            <TextCell Text="{Binding serial_number}"/>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+    
+    <!--Custom View Cells-->
+    <!--
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout>
+            <Label Text="{Binding Text}" 
+                   Style="{DynamicResource ListItemTextStyle}" />
+            <Label Text="{Binding Detail}" 
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    -->
+  </ListView>
+</ContentPage>

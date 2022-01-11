@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Rocket_Elevators_Mobile.Models
+﻿namespace Rocket_Elevators_Mobile.Models
 {
     public class Item
     {

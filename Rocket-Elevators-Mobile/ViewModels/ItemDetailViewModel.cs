@@ -1,7 +1,6 @@
 ﻿using Rocket_Elevators_Mobile.Models;
 using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Rocket_Elevators_Mobile.ViewModels
@@ -43,7 +42,7 @@ namespace Rocket_Elevators_Mobile.ViewModels
         {
             try
             {
-                var item = await DataStore.GetItemAsync(itemId);
+                Item item = await DataStore.GetItemAsync(itemId);
                 Id = item.Id;
                 Text = item.Text;
                 Description = item.Description;

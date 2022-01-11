@@ -1,8 +1,5 @@
 ﻿using Rocket_Elevators_Mobile.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Rocket_Elevators_Mobile.ViewModels
@@ -16,7 +13,7 @@ namespace Rocket_Elevators_Mobile.ViewModels
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
-            this.PropertyChanged +=
+            PropertyChanged +=
                 (_, __) => SaveCommand.ChangeCanExecute();
         }
 
