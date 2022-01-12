@@ -8,40 +8,39 @@ namespace Rocket_Elevators_Mobile.ViewModels
     internal class ElevatorStatusViewModel : BaseViewModel, IQueryAttributable
     {
 
-
-        /// <summary> Used in ElevevatorStatusPage for Binding on Status.</summary>
+        // Internal variables
+        private string status;
+        // External variables
         public string Status
         {
             get => status;
             set => SetProperty(ref status, value);
         }
-        // For use inside the ViewModels only.
-        private string status;
 
-
-        /// <summary>Used in ElevevatorStatusPage for Binding on Color.</summary>
+        // Internal variables
+        private string color;
+        // External variables
         public string Color
         {
             get => color;
             set => SetProperty(ref color, value);
         }
-        // For use inside the ViewModels only.
-        private string color;
 
-        /// <summary>
-        /// Text for the button that will be either :
-        /// "End" When the elevator status is not "Online"
-        /// and "Return Home" when it is online.
-        /// </summary>
+        /*  
+        Text for the button that will be either :
+        "End" When the elevator status is not "Online"
+        and "Return Home" when it is online.
+        */
+        // Internal variables
+        private string actionText;
+        // External variables
         public string ActionText
         {
             get => actionText;
             set => SetProperty(ref actionText, value);
         }
-        // For use inside the ViewModels only.
-        private string actionText;
 
-        /// <summary>Id of the selected Elevator Model.</summary>
+        // Id of the selected Elevator Model.
         private string Id { get; set; }
 
         public Command BottomButton { get; }
@@ -89,7 +88,7 @@ namespace Rocket_Elevators_Mobile.ViewModels
         /// <summary> Check for a change in the status of the elevator in the database.</summary>
         private void DynamicStatusUpdate()
         {
-            Device.StartTimer(TimeSpan.FromMilliseconds(250), () =>
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
                 try
                 {

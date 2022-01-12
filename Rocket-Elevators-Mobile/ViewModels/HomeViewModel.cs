@@ -7,25 +7,25 @@ namespace Rocket_Elevators_Mobile.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
-        /// <summary>Used in the HomePage ListView of Elevator</summary>
+        // Internal variables
+        private ObservableRangeCollection<Elevator> elevators;
+        // External variables
         public ObservableRangeCollection<Elevator> Elevators
         {
             get => elevators;
             set => SetProperty(ref elevators, value);
         }
-        // For use inside the ViewModels only.
-        private ObservableRangeCollection<Elevator> elevators;
-
-        /// <summary>Current State of the RefreshView</summary>
+        // Internal variables
+        private bool isRefreshing;
+        // External variables
         public bool IsRefreshing
         {
             get => isRefreshing;
             set => SetProperty(ref isRefreshing, value);
         }
-        // For use inside the ViewModels only.
-        private bool isRefreshing;
-
+        // External Command
         public Command LogoutCommand { get; set; }
+        // External Command
         public Command RefreshCommand { get; set; }
 
         public HomeViewModel()
