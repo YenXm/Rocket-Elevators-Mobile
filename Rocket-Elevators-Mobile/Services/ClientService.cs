@@ -49,5 +49,22 @@ namespace Rocket_Elevators_Mobile.Services
             var elevatorList = _client.GetFromJsonAsync<ElevatorList>(_baseUrl + "elevators/elevators-not-in-use").Result;
             return elevatorList;
         }
+
+        public string GetElevatorStatus(string id)
+        {
+            SetClientHeader();
+
+            // Will contain all the information of the elevator.
+            Elevator elevator = _client.GetFromJsonAsync<Elevator>(_baseUrl + $"/elevators/{id}").Result;
+
+            // Only select status out of it.
+            return elevator.status;
+        }
+
+        public void UpdateElevatorStatus(string id)
+        {
+            SetClientHeader();
+            _ = _client.GetAsync(_baseUrl + $"/elevators/update/{id}/Online").Result;
+        }
     }
 }

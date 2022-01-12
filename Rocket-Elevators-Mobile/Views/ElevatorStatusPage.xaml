@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:Rocket_Elevators_Mobile.ViewModels"
+             x:Class="Rocket_Elevators_Mobile.Views.ElevatorStatusPage"
+             x:DataType="viewmodels:ElevatorStatusViewModel">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="{Binding Status}" TextColor="{Binding Color}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button VerticalOptions="Center" Text="End" Command="{Binding EndIntervention}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

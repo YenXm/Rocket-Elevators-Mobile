@@ -8,5 +8,7 @@ namespace Rocket_Elevators_Mobile.Services
     {
         Task<bool> VerifyEmployeeEmail(string email);
         ElevatorList GetListOfElevatorOffline();
+        string GetElevatorStatus(string id);
+        void UpdateElevatorStatus(string id);
     }
 }

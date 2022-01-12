@@ -22,6 +22,11 @@ namespace Rocket_Elevators_Mobile.Models
         public string information { get; set; }
         public string notes { get; set; }
         public DateTime updated_at { get; set; }
+
+        public override string ToString()
+        {
+            return id.ToString();
+        }
     }
 
 }

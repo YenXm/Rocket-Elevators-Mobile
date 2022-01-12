@@ -9,6 +9,7 @@ namespace Rocket_Elevators_Mobile
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(ElevatorStatusPage), typeof(ElevatorStatusPage));
             Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
             Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
         }

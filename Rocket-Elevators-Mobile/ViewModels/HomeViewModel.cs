@@ -1,27 +1,48 @@
-﻿using Rocket_Elevators_Mobile.Services;
+﻿using MvvmHelpers;
 using Rocket_Elevators_Mobile.Models;
-using System.Collections.ObjectModel;
-using System.Text.Json;
+using System;
 using Xamarin.Forms;
-using MvvmHelpers;
-using System.Threading.Tasks;
 
 namespace Rocket_Elevators_Mobile.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
-
-        public ObservableCollection<Elevator> Elevators { get; set; }
+        /// <summary>Used in the HomePage ListView of Elevator</summary>
+        public ObservableRangeCollection<Elevator> Elevators
+        {
+            get => elevators;
+            set => SetProperty(ref elevators, value);
+        }
+        // For use inside the ViewModels only.
+        private ObservableRangeCollection<Elevator> elevators;
 
         public HomeViewModel()
         {
 
-            var elevators = ClientService.GetListOfElevatorOffline();
-            Elevators = new ObservableRangeCollection<Elevator>();
-            foreach (var elevator in elevators.elevators)
+            ElevatorList _elevators = ClientService.GetListOfElevatorOffline();
+            Elevators = new ObservableRangeCollection<Elevator>(_elevators.elevators);
+
+            DynamicElevatorListUpdate();
+
+        }
+
+        /// <summary> Check for a change in the list of the elevator not currently running.</summary>
+        private void DynamicElevatorListUpdate()
+        {
+            Device.StartTimer(TimeSpan.FromMilliseconds(250), () =>
             {
-                Elevators.Add(elevator);
-            }
+                try
+                {
+                    Elevators.ReplaceRange(ClientService.GetListOfElevatorOffline().elevators);
+                }
+                catch (Exception e)
+                {
+                    // Would mainly happen if the api call failed
+                    Console.WriteLine("Failed to load ElevatorList.");
+                    Console.WriteLine($"{e} Exception caught.");
+                }
+                return true;
+            });
         }
     }
 }
