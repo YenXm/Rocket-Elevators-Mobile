@@ -4,33 +4,21 @@
              xmlns:viewmodels="clr-namespace:Rocket_Elevators_Mobile.ViewModels" 
              xmlns:model="clr-namespace:Rocket_Elevators_Mobile.Models"
              x:DataType="viewmodels:HomeViewModel"
-             x:Class="Rocket_Elevators_Mobile.Views.HomePage">
-    <ListView x:Name="ElevatorListView"
+             x:Class="Rocket_Elevators_Mobile.Views.HomePage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ElevatorListView"
             ItemsSource="{Binding Elevators}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement">
-    <!--Built in Cells-->
-    
-    <ListView.ItemTemplate>
-        <DataTemplate x:DataType="model:Elevator">
-            <TextCell Text="{Binding serial_number}"/>
-        </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-  </ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Elevator">
+                        <ImageCell Text="{Binding serial_number}" ImageSource="R21.png"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button VerticalOptions="Center" Text="Logout" Command="{Binding LogoutCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

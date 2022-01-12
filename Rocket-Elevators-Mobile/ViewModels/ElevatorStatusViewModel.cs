@@ -28,14 +28,28 @@ namespace Rocket_Elevators_Mobile.ViewModels
         // For use inside the ViewModels only.
         private string color;
 
+        /// <summary>
+        /// Text for the button that will be either :
+        /// "End" When the elevator status is not "Online"
+        /// and "Return Home" when it is online.
+        /// </summary>
+        public string ActionText
+        {
+            get => actionText;
+            set => SetProperty(ref actionText, value);
+        }
+        // For use inside the ViewModels only.
+        private string actionText;
+
         /// <summary>Id of the selected Elevator Model.</summary>
         private string Id { get; set; }
 
-        public Command EndIntervention { get; }
+        public Command BottomButton { get; }
         public ElevatorStatusViewModel()
         {
-            EndIntervention = new Command(OnButtonClicked);
+            BottomButton = new Command(OnButtonClicked);
         }
+
 
         public void ApplyQueryAttributes(IDictionary<string, string> query)
         {
@@ -43,6 +57,7 @@ namespace Rocket_Elevators_Mobile.ViewModels
             string id = HttpUtility.UrlDecode(query["id"]);
             // Only used in the OnButtonClicked method.
             Id = id;
+            ActionText = "End";
             LoadElevator(id);
         }
 
@@ -83,6 +98,7 @@ namespace Rocket_Elevators_Mobile.ViewModels
                     {
                         Color = _status == "Online" ? "Green" : "Red";
                         Status = _status;
+                        ActionText = _status == "Online" ? "Return Home" : "End";
                     }
                 }
                 catch (Exception e)
@@ -97,9 +113,16 @@ namespace Rocket_Elevators_Mobile.ViewModels
         }
 
 
-        public void OnButtonClicked()
+        public async void OnButtonClicked()
         {
-            ClientService.UpdateElevatorStatus(Id);
+            if (status == "Online")
+            {
+                await Shell.Current.GoToAsync("//HomePage");
+            }
+            else
+            {
+                ClientService.UpdateElevatorStatus(Id);
+            }
         }
     }
 }

@@ -15,9 +15,11 @@ namespace Rocket_Elevators_Mobile.ViewModels
         }
         // For use inside the ViewModels only.
         private ObservableRangeCollection<Elevator> elevators;
+        public Command LogoutCommand { get; set; }
 
         public HomeViewModel()
         {
+            LogoutCommand = new Command(OnLogoutClicked);
 
             ElevatorList _elevators = ClientService.GetListOfElevatorOffline();
             Elevators = new ObservableRangeCollection<Elevator>(_elevators.elevators);
@@ -25,6 +27,7 @@ namespace Rocket_Elevators_Mobile.ViewModels
             DynamicElevatorListUpdate();
 
         }
+
 
         /// <summary> Check for a change in the list of the elevator not currently running.</summary>
         private void DynamicElevatorListUpdate()
@@ -43,6 +46,11 @@ namespace Rocket_Elevators_Mobile.ViewModels
                 }
                 return true;
             });
+        }
+
+        private async void OnLogoutClicked()
+        {
+            await Shell.Current.GoToAsync("//LoginPage");
         }
     }
 }

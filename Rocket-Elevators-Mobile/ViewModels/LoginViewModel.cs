@@ -39,12 +39,12 @@ namespace Rocket_Elevators_Mobile.ViewModels
             if (EmailVerification)
             {
                 // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-                await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
             }
             else
             {
                 // Display an alert if the email verification fails
-                await MessageService.DisplayAlert("Invalid Email Address");
+                await MessageService.DisplayAlert("Invalid Agent Email Address");
             }
         }
     }

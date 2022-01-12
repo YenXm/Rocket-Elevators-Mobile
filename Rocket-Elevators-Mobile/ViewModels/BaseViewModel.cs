@@ -10,7 +10,6 @@ namespace Rocket_Elevators_Mobile.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
         public IMessageService MessageService => DependencyService.Get<IMessageService>();
         public IClientService ClientService => DependencyService.Get<IClientService>();
 

@@ -8,6 +8,7 @@
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center" Spacing="30">
+            <Image Source="R2.png"/>
             <Editor Text="{Binding Email, Mode=TwoWay}" Placeholder="Enter your email" PlaceholderColor="#87ceeb"  AutoSize="TextChanges" FontSize="Medium" Margin="0" >
                 <Editor.BackgroundColor>
                     <OnPlatform x:TypeArguments="d:Color">

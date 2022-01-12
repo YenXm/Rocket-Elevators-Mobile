@@ -142,4 +142,10 @@
       <Name>Rocket-Elevators-Mobile</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\R21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\R2.png" />
+  </ItemGroup>
 </Project>

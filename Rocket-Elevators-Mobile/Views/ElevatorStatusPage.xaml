@@ -6,10 +6,10 @@
              x:DataType="viewmodels:ElevatorStatusViewModel">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Status}" TextColor="{Binding Color}"
+            <Label Text="{Binding Status}" TextColor="{Binding Color} " FontSize="60"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Button VerticalOptions="Center" Text="End" Command="{Binding EndIntervention}"/>
+            <Button VerticalOptions="Center" Text="{Binding ActionText}" Command="{Binding BottomButton}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
