@@ -8,16 +8,19 @@
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="ElevatorListView"
-            ItemsSource="{Binding Elevators}"
-            ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Elevator">
-                        <ImageCell Text="{Binding serial_number}" ImageSource="R21.png"/>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <RefreshView IsRefreshing="{Binding IsRefreshing}"
+             Command="{Binding RefreshCommand}">
+                <ListView x:Name="ElevatorListView"
+                ItemsSource="{Binding Elevators}"
+                ItemTapped="Handle_ItemTapped"
+                CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Elevator">
+                            <ImageCell Text="{Binding serial_number}" ImageSource="R21.png"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RefreshView>
             <Button VerticalOptions="Center" Text="Logout" Command="{Binding LogoutCommand}"/>
         </StackLayout>
     </ContentPage.Content>

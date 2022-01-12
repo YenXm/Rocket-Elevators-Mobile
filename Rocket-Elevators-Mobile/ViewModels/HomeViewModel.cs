@@ -15,37 +15,34 @@ namespace Rocket_Elevators_Mobile.ViewModels
         }
         // For use inside the ViewModels only.
         private ObservableRangeCollection<Elevator> elevators;
+
+        /// <summary>Current State of the RefreshView</summary>
+        public bool IsRefreshing
+        {
+            get => isRefreshing;
+            set => SetProperty(ref isRefreshing, value);
+        }
+        // For use inside the ViewModels only.
+        private bool isRefreshing;
+
         public Command LogoutCommand { get; set; }
+        public Command RefreshCommand { get; set; }
 
         public HomeViewModel()
         {
             LogoutCommand = new Command(OnLogoutClicked);
+            RefreshCommand = new Command(Refresh);
+
 
             ElevatorList _elevators = ClientService.GetListOfElevatorOffline();
             Elevators = new ObservableRangeCollection<Elevator>(_elevators.elevators);
 
-            DynamicElevatorListUpdate();
-
         }
 
-
-        /// <summary> Check for a change in the list of the elevator not currently running.</summary>
-        private void DynamicElevatorListUpdate()
+        public void Refresh()
         {
-            Device.StartTimer(TimeSpan.FromMilliseconds(250), () =>
-            {
-                try
-                {
-                    Elevators.ReplaceRange(ClientService.GetListOfElevatorOffline().elevators);
-                }
-                catch (Exception e)
-                {
-                    // Would mainly happen if the api call failed
-                    Console.WriteLine("Failed to load ElevatorList.");
-                    Console.WriteLine($"{e} Exception caught.");
-                }
-                return true;
-            });
+            Elevators.ReplaceRange(ClientService.GetListOfElevatorOffline().elevators);
+            IsRefreshing = false;
         }
 
         private async void OnLogoutClicked()
