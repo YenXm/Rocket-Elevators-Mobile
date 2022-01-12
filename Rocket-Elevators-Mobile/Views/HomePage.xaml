@@ -16,7 +16,7 @@
                 CachingStrategy="RecycleElement">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Elevator">
-                            <ImageCell Text="{Binding serial_number}" ImageSource="R21.png"/>
+                            <ImageCell Text="{Binding id}" ImageSource="R21.png"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

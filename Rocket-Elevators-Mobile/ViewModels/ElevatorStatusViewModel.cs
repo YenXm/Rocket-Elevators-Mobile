@@ -90,23 +90,26 @@ namespace Rocket_Elevators_Mobile.ViewModels
         {
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                try
-                {
-                    string _status = ClientService.GetElevatorStatus(Id);
-                    if (_status != status)
-                    {
-                        Color = _status == "Online" ? "Green" : "Red";
-                        Status = _status;
-                        ActionText = _status == "Online" ? "Return Home" : "End";
-                    }
-                }
-                catch (Exception e)
-                {
-                    // Would mainly happen if the api call failed
-                    Console.WriteLine("Failed to Update Status.");
-                    Console.WriteLine($"{e} Exception caught.");
+                Device.BeginInvokeOnMainThread(() =>
+               {
+                   try
+                   {
+                       string _status = ClientService.GetElevatorStatus(Id);
+                       if (_status != status)
+                       {
+                           Color = _status == "Online" ? "Green" : "Red";
+                           Status = _status;
+                           ActionText = _status == "Online" ? "Return Home" : "End";
+                       }
+                   }
+                   catch (Exception e)
+                   {
+                        // Would mainly happen if the api call failed
+                        Console.WriteLine("Failed to Update Status.");
+                       Console.WriteLine($"{e} Exception caught.");
 
-                }
+                   }
+               });
                 return true;
             });
         }
