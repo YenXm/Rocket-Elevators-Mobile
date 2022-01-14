@@ -9,19 +9,25 @@
     <ContentPage.Content>
         <StackLayout>
             <RefreshView IsRefreshing="{Binding IsRefreshing}"
-             Command="{Binding RefreshCommand}">
+                         Command="{Binding RefreshCommand}">
                 <ListView x:Name="ElevatorListView"
-                ItemsSource="{Binding Elevators}"
-                ItemTapped="Handle_ItemTapped"
-                CachingStrategy="RecycleElement">
+                          ItemsSource="{Binding Elevators}"
+                          ItemTapped="Handle_ItemTapped"
+                          CachingStrategy="RecycleElement">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="model:Elevator">
-                            <ImageCell Text="{Binding id}" ImageSource="R21.png"/>
+                            <ImageCell 
+                                Text="{Binding id, StringFormat='Elevator: {0}'}" 
+                                ImageSource="R21.png" 
+                                Detail="{Binding serial_number, StringFormat='SN: {0}'}" 
+                                DetailColor ="#778899"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </RefreshView>
-            <Button VerticalOptions="Center" Text="Logout" Command="{Binding LogoutCommand}"/>
+            <Button VerticalOptions="Center" 
+                    Text="Logout" 
+                    Command="{Binding LogoutCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

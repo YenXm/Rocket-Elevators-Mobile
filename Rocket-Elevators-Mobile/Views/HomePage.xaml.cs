@@ -13,7 +13,15 @@ namespace Rocket_Elevators_Mobile.Views
         {
             InitializeComponent();
             BindingContext = new HomeViewModel();
+        }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Refresh ElevatorListView with update inactive elevators.
+            HomeViewModel viewModel = BindingContext as HomeViewModel;
+            viewModel.Refresh();
         }
 
         private async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -23,13 +31,12 @@ namespace Rocket_Elevators_Mobile.Views
                 return;
             }
 
-            var elevator = ((Elevator)(sender as ListView).SelectedItem).id;
+            int elevator = ((Elevator)(sender as ListView).SelectedItem).id;
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;
 
             await Shell.Current.GoToAsync($"ElevatorStatusPage?id={elevator}");
-
         }
     }
 }

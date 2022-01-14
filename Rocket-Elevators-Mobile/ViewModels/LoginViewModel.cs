@@ -6,11 +6,21 @@ namespace Rocket_Elevators_Mobile.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
+        private string email;
+        public string Email
+        {
+            get => email;
+            set => SetProperty(ref email, value);
+        }
 
-
+        private string isRunning;
+        public string IsRunning
+        {
+            get => isRunning;
+            set => SetProperty(ref isRunning, value);
+        }
 
         public Command LoginCommand { get; }
-        private string email;
 
         private bool ValidateLogin()
         {
@@ -24,18 +34,12 @@ namespace Rocket_Elevators_Mobile.ViewModels
                 (_, __) => LoginCommand.ChangeCanExecute();
         }
 
-        public string Email
-        {
-            get => email;
-            set => SetProperty(ref email, value);
-        }
-
-
         private async void OnLoginClicked()
         {
-
+            IsRunning = "true";
             // Verify that an employee with that email exist in database
             bool EmailVerification = await ClientService.VerifyEmployeeEmail(email);
+            IsRunning = "false";
             if (EmailVerification)
             {
                 // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one

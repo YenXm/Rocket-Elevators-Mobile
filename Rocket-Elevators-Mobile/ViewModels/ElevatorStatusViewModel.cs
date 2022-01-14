@@ -8,18 +8,23 @@ namespace Rocket_Elevators_Mobile.ViewModels
     internal class ElevatorStatusViewModel : BaseViewModel, IQueryAttributable
     {
 
-        // Internal variables
+        public bool StopTimer { get; set; }
+
+        private string image;
+        public string Image
+        {
+            get => image;
+            set => SetProperty(ref image, value);
+        }
+
         private string status;
-        // External variables
         public string Status
         {
             get => status;
             set => SetProperty(ref status, value);
         }
 
-        // Internal variables
         private string color;
-        // External variables
         public string Color
         {
             get => color;
@@ -31,9 +36,7 @@ namespace Rocket_Elevators_Mobile.ViewModels
         "End" When the elevator status is not "Online"
         and "Return Home" when it is online.
         */
-        // Internal variables
         private string actionText;
-        // External variables
         public string ActionText
         {
             get => actionText;
@@ -73,6 +76,7 @@ namespace Rocket_Elevators_Mobile.ViewModels
                 Status = ClientService.GetElevatorStatus(id);
                 // Initialize the Status textColor.
                 Color = "Red";
+                Image = "Elevator_Not_Working.jpg";
 
                 //Start the dynamic Status update
                 DynamicStatusUpdate();
@@ -88,29 +92,29 @@ namespace Rocket_Elevators_Mobile.ViewModels
         /// <summary> Check for a change in the status of the elevator in the database.</summary>
         private void DynamicStatusUpdate()
         {
+            StopTimer = false;
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
-                Device.BeginInvokeOnMainThread(() =>
-               {
-                   try
-                   {
-                       string _status = ClientService.GetElevatorStatus(Id);
-                       if (_status != status)
-                       {
-                           Color = _status == "Online" ? "Green" : "Red";
-                           Status = _status;
-                           ActionText = _status == "Online" ? "Return Home" : "End";
-                       }
-                   }
-                   catch (Exception e)
-                   {
-                        // Would mainly happen if the api call failed
-                        Console.WriteLine("Failed to Update Status.");
-                       Console.WriteLine($"{e} Exception caught.");
+                string _status = ClientService.GetElevatorStatus(Id);
+                try
+                {
 
-                   }
-               });
-                return true;
+                    if (_status != status)
+                    {
+                        Color = _status == "Online" ? "Green" : "Red";
+                        Status = _status;
+                        ActionText = _status == "Online" ? "Return Home" : "End";
+                        Image = _status == "Online" ? "AdobeStock_53477661.jpeg" : "Elevator_Not_Working.jpg";
+                    }
+                }
+                catch (Exception e)
+                {
+                    // Would mainly happen if the api call failed
+                    Console.WriteLine("Failed to Update Status.");
+                    Console.WriteLine($"{e} Exception caught.");
+
+                }
+                return !StopTimer;
             });
         }
 
