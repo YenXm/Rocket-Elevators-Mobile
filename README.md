@@ -106,7 +106,7 @@ Xamarin essentials 1.6.1
    
     Select the proper startup project corespondig to your phone type and click play
 
-    ![Screen Shot](images/launch_step.png)
+    ![Screen Shot](images/launch_step.PNG)
 
     **Note that while connected on the debugger, the app will be slower, it is better to closed the debugger session and restart the app manually on your phone afterward.**
 
