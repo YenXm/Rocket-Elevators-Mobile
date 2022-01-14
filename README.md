@@ -29,6 +29,8 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
+- [Issues When Testing](#issues-when-testing)
+- [TODO](#todo)
 - [Authors](#authors)
 
 ## About The Project
@@ -147,6 +149,16 @@ Xamarin essentials 1.6.1
       <img src="images/refreshed_home_page.jpg" alt="drawing" width="250" height="542" />
       <img src="images/pull_refresh_home_page.jpg" alt="drawing" width="250" height="542" />
 
+
+## Issues When Testing
+
+Testing on Android was really straight forward but, on IOS... it was something else. 
+
+Firstly, I do not own a mac which mean I could not go with the xcode route. I did managed to make my old iphone work and after having it lock for 17 years and a factory reset plus multiple gmail and apple id recover attempt, I got kick in the face by a 120$ fee to access developer mode... This was the last straw that broke my camel back and I decided to not test my app on IOS.
+
+## TODO
+
+Readme text correction.
 
 ## Authors
 
