@@ -32,7 +32,8 @@
 - [Authors](#authors)
 
 ## About The Project
-TODO
+
+This is a mobile application made in the context of the Codeboxx bootcamp Week 14. It is part of the Rocket Elevator fictious company application suit. It's primary purpose is to interface with the information system from the previous week.
 
 
 ## Built With
@@ -100,9 +101,9 @@ Xamarin essentials 1.6.1
 
 ## Usage
 
-1. Plug your phone into your computer.
+1. __Plug your phone into your computer.__
 
-2. In Visual Studio
+2. __In Visual Studio__
    
     Select the proper startup project corespondig to your phone type and click play
 
@@ -110,7 +111,7 @@ Xamarin essentials 1.6.1
 
     **Note that while connected on the debugger, the app will be slower, it is better to closed the debugger session and restart the app manually on your phone afterward.**
 
-3. To login to the app you must enter a valid employee email address.
+3. __To login to the app you must enter a valid employee email address.__
 
     For debugging the "test" email is available but for the complete list of available email addresses please refer to this [document](employees_email.txt)
 
@@ -118,7 +119,7 @@ Xamarin essentials 1.6.1
 
     <img src="images/login_page_loading.jpg" alt="drawing" width="250" height="542" />
 
-4. Home screen
+4. __Home screen__
    
     The list here represent all the elevator with status that is not "Online".
 
@@ -128,7 +129,7 @@ Xamarin essentials 1.6.1
 
     You can either click on one of the elevator to proceed to the next page or click logout at the bottom to go back to the login page.
 
-5. Elevator Status Screen
+5. __Elevator Status Screen__
 
     Pretty simple screen, it show you the status of the elevator and allow you to end the interruption and then go back to the home screen.
 
@@ -137,7 +138,7 @@ Xamarin essentials 1.6.1
       <img src="images/offline_page.jpg" alt="drawing" width="250" height="542" />
       <img src="images/online_page.jpg" alt="drawing" width="250" height="542" />
 
-6. Lastly, Home screen refresh
+6. __Lastly, Home screen refresh__
 
     Everytime you got back to the home screen it will refresh itself but, you can manually refresh it by pulling the top of the screen.
 
