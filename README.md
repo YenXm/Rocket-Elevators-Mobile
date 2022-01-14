@@ -29,16 +29,10 @@
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-  - [Creating A Pull Request](#creating-a-pull-request)
-- [License](#license)
 - [Authors](#authors)
-- [Acknowledgements](#acknowledgements)
 
 ## About The Project
-
-![Screen Shot](images/showcase.png)
+TODO
 
 
 ## Built With
@@ -61,7 +55,7 @@ Xamarin essentials 1.6.1
 1. Clone the repo and open the solution in Visual Studio
 
     ```sh
-    git clone https://github.com/your_username_/Project-Name.git
+    git clone https://github.com/YenXm/Rocket-Elevators-Mobile.git
     ```
 
     Alternative: Use the clone repo option when creating a new project using Visual Studios
@@ -120,36 +114,39 @@ Xamarin essentials 1.6.1
 
     For debugging the "test" email is available but for the complete list of available email addresses please refer to this [document](employees_email.txt)
 
-## Roadmap
+    If no one has used the app in a while, it may take a while for the app to process the request (this is cause by the api leaving sleep mode). You can see that it is loading by this indicator
 
-See the [open issues](https://github.com/YenXm/Rocket-Elevators-Mobile/issues) for a list of proposed features (and known issues).
+    <img src="images/login_page_loading.jpg" alt="drawing" width="250" height="542" />
 
-## Contributing
+4. Home screen
+   
+    The list here represent all the elevator with status that is not "Online".
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-* If you have suggestions for adding or removing projects, feel free to [open an issue](https://github.com/YenXm/Rocket-Elevators-Mobile/issues/new) to discuss it, or directly create a pull request after you edit the *README.md* file with necessary changes.
-* Please make sure you check your spelling and grammar.
-* Create individual PR for each suggestion.
-* Please also read through the [Code Of Conduct](https://github.com/YenXm/Rocket-Elevators-Mobile/blob/main/CODE_OF_CONDUCT.md) before posting your first idea as well.
+    The 2 text field represent the elevator id (in the information system) and its serial number.
 
-### Creating A Pull Request
+    <img src="images/home_page.jpg" alt="drawing" width="250" height="542" />
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+    You can either click on one of the elevator to proceed to the next page or click logout at the bottom to go back to the login page.
 
-## License
+5. Elevator Status Screen
 
-Distributed under the MIT License. See [LICENSE](https://github.com/YenXm/Rocket-Elevators-Mobile/blob/main/LICENSE.md) for more information.
+    Pretty simple screen, it show you the status of the elevator and allow you to end the interruption and then go back to the home screen.
+
+    We clicked on elevator 8.
+
+      <img src="images/offline_page.jpg" alt="drawing" width="250" height="542" />
+      <img src="images/online_page.jpg" alt="drawing" width="250" height="542" />
+
+6. Lastly, Home screen refresh
+
+    Everytime you got back to the home screen it will refresh itself but, you can manually refresh it by pulling the top of the screen.
+
+    You can see that the elevator 8 is not present anymore.
+
+      <img src="images/refreshed_home_page.jpg" alt="drawing" width="250" height="542" />
+      <img src="images/pull_refresh_home_page.jpg" alt="drawing" width="250" height="542" />
+
 
 ## Authors
 
-* **Shaan Khan** - *Comp Sci Student* - [Shaan Khan](https://github.com/ShaanCoding/) - *Built ReadME Template*
-
-## Acknowledgements
-
-* [ShaanCoding](https://github.com/ShaanCoding/)
-* [Othneil Drew](https://github.com/othneildrew/Best-README-Template)
-* [ImgShields](https://shields.io/)
+* **YenXm (Levy)** - *CodeBoxx Student* - [YenXm](https://github.com/YenXm/) - 
