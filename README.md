@@ -160,6 +160,8 @@ Firstly, I do not own a mac which mean I could not go with the xcode route. I di
 
 Readme text correction.
 
+Change database connection
+
 ## Authors
 
 * **YenXm (Levy)** - *CodeBoxx Student* - [YenXm](https://github.com/YenXm/) - 
