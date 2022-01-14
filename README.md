@@ -118,7 +118,7 @@ Xamarin essentials 1.6.1
 
 3. To login to the app you must enter a valid employee email address.
 
-    For debugging the "test" email is available but for the complete list of available email addresses please refer to this document 
+    For debugging the "test" email is available but for the complete list of available email addresses please refer to this [document](employees_email.txt)
 
 ## Roadmap
 
