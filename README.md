@@ -99,6 +99,12 @@ Xamarin essentials 1.6.1
         https://docs.microsoft.com/en-us/xamarin/tools/ios-simulator/
 
         https://www.wikihow.com/Enable-Developer-Mode-on-an-iPhone
+    
+## Video
+
+Usage and android installation guide with apk.
+
+https://youtu.be/P9jkGhjBCrI
 
 
 ## Usage
