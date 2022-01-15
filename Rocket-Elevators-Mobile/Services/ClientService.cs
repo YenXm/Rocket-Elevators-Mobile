@@ -1,6 +1,5 @@
 ﻿using Rocket_Elevators_Mobile.Models;
 using System;
-using System.Text.Json;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Rocket_Elevators_Mobile.Services
 {
-    class ClientService : IClientService
+    internal class ClientService : IClientService
     {
         // We are trying to only have to create the client once for the whole app.
         private readonly HttpClient _client = new HttpClient();
@@ -46,7 +45,7 @@ namespace Rocket_Elevators_Mobile.Services
             SetClientHeader();
 
             // Map the json object from the request to the ElevatorList model.
-            var elevatorList = _client.GetFromJsonAsync<ElevatorList>(_baseUrl + "elevators/elevators-not-in-use").Result;
+            ElevatorList elevatorList = _client.GetFromJsonAsync<ElevatorList>(_baseUrl + "elevators/elevators-not-in-use").Result;
             return elevatorList;
         }
 

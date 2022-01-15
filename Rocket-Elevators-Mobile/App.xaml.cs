@@ -11,7 +11,7 @@ namespace Rocket_Elevators_Mobile
             InitializeComponent();
 
             DependencyService.Register<IMessageService, MessageService>();
-            DependencyService.Register<IClientService, ClientService>();;
+            DependencyService.Register<IClientService, ClientService>(); ;
             MainPage = new AppShell();
         }
 

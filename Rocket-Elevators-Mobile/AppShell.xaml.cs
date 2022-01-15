@@ -1,5 +1,4 @@
 ﻿using Rocket_Elevators_Mobile.Views;
-using System;
 using Xamarin.Forms;
 
 namespace Rocket_Elevators_Mobile

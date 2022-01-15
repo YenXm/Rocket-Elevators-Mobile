@@ -1,6 +1,5 @@
-﻿using System.Net.Http;
+﻿using Rocket_Elevators_Mobile.Models;
 using System.Threading.Tasks;
-using Rocket_Elevators_Mobile.Models;
 
 namespace Rocket_Elevators_Mobile.Services
 {
